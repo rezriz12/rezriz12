@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teka-Teki Silang Relasi dan Fungsi</title>
+<style>
+  body {
+    font-family: Arial rgb(255, 255, 255), sans-serif;
+    background-color: #FFC5D3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    margin: 0;
+    overflow-y: auto;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    color: rgb(253, 0, 42);
+    font-size: 30px;
+  }
+
+  .crossword {
+    display: grid;
+    grid-template-columns: repeat(13, 40px);
+    grid-template-rows: repeat(15, 40px);
+    gap: 2px;
+    background-color: #FFDEED;
+    padding: 10px;
+  }
+
+  .cell {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    position: relative;
+    border: 1px solid #f8409c;
+  }
+
+  .cell input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+    background: transparent;
+    outline: none;
+  }
+
+  .number {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-size: 10px;
+    color: #fa43b4;
+  }
+
+  .blank {
+    background-color: #FFA6C9;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #2d7efb;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #155dd1;
+  }
+
+  .correct {
+    background-color: #8ef58e !important;
+  }
+
+  .incorrect {
+    background-color: #f88 !important;
+  }
+
+  .soal-container {
+    margin-top: 30px;
+    max-width: 800px;
+    text-align: left;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.12);
+  }
+
+  .soal-container h2 {
+    color: #141415;
+    margin: 8px 0;
+  }
+</style>
+</head>
+<body>
+    
+<h1>🎀Teka-Teki Silang Relasi dan Fungsi🎀</h1>
+
+<div class="crossword" id="crossword">
+  <!-- Baris 1 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="blank"></div><div class="blank"></div>
+  <div class="cell"><div class="number">1</div><input maxlength="1" data-answer="P"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div>
+
+  <!-- Baris 2 -->
+  <div class="blank"></div>
+  <div class="cell"><div class="number">2</div><input maxlength="1" data-answer="K"></div>
+  <div class="cell"><input maxlength="1" data-answer="O"></div>
+  <div class="cell"><input maxlength="1" data-answer="D"></div>
+  <div class="cell"><div class="number">3</div><input maxlength="1" data-answer="O"></div>
+  <div class="cell"><input maxlength="1" data-answer="M"></div>
+  <div class="cell"><input maxlength="1" data-answer="A"></div>
+  <div class="cell"><input maxlength="1" data-answer="I"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+
+  <!-- Baris 3 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="U"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="S"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div>
+
+  <!-- Baris 4 -->
+  <div class="cell"><div class="number">4</div><input maxlength="1" data-answer="P"></div>
+  <div class="cell"><input maxlength="1" data-answer="E"></div>
+  <div class="cell"><input maxlength="1" data-answer="M"></div>
+  <div class="cell"><input maxlength="1" data-answer="E"></div>
+  <div class="cell"><input maxlength="1" data-answer="T"></div>
+  <div class="cell"><input maxlength="1" data-answer="A"></div>
+  <div class="cell"><input maxlength="1" data-answer="A"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><div class="number">5</div><input maxlength="1" data-answer="D"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 5 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="P"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="blank"></div>
+  <div class="cell"><div class="number">6</div><input maxlength="1" data-answer="B"></div>
+  <div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="O"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 6 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><div class="number">7</div><input maxlength="1" data-answer="F"></div>
+  <div class="cell"><input maxlength="1" data-answer="U"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="cell"><input maxlength="1" data-answer="G"></div>
+  <div class="cell"><input maxlength="1" data-answer="S"></div>
+  <div class="cell"><input maxlength="1" data-answer="I"></div>
+  <div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="M"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 7 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="T"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="A"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="J"></div>
+  <div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="A"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 8 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><div class="number">8</div><input maxlength="1" data-answer="I"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="cell"><input maxlength="1" data-answer="J"></div>
+  <div class="cell"><input maxlength="1" data-answer="E"></div>
+  <div class="cell"><input maxlength="1" data-answer="K"></div>
+  <div class="cell"><input maxlength="1" data-answer="T"></div>
+  <div class="cell"><input maxlength="1" data-answer="I"></div>
+  <div class="cell"><input maxlength="1" data-answer="F"></div>
+
+  <!-- Baris 9 -->
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="blank"></div><div class="blank"></div><div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="K"></div>
+  <div class="blank"></div><div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 10 -->
+  <div class="blank"></div><div class="blank"></div>
+  <div class="cell"><div class="number">9</div><input maxlength="1" data-answer="S"></div>
+  <div class="cell"><input maxlength="1" data-answer="U"></div>
+  <div class="cell"><div class="number">10</div><input maxlength="1" data-answer="R"></div>
+  <div class="cell"><input maxlength="1" data-answer="J"></div>
+  <div class="cell"><input maxlength="1" data-answer="E"></div>
+  <div class="cell"><input maxlength="1" data-answer="K"></div>
+  <div class="cell"><input maxlength="1" data-answer="T"></div>
+  <div class="cell"><input maxlength="1" data-answer="I"></div>
+  <div class="cell"><div class="number">11</div><input maxlength="1" data-answer="F"></div>
+  <div class="blank"></div><div class="blank"></div>
+
+  <!-- Baris 11 -->
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="E"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="I"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="X"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 12 -->
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="L"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="F"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 13 -->
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><div class="number">12</div><input maxlength="1" data-answer="R"></div>
+  <div class="cell"><input maxlength="1" data-answer="A"></div>
+  <div class="cell"><input maxlength="1" data-answer="N"></div>
+  <div class="cell"><input maxlength="1" data-answer="G"></div>
+  <div class="cell"><input maxlength="1" data-answer="E"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 14 -->
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="S"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+
+  <!-- Baris 15 -->
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="cell"><input maxlength="1" data-answer="I"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+  <div class="blank"></div>
+</div>
+
+<button id="checkBtn">Cek Jawaban</button>
+
+<!-- Suara -->
+<audio id="soundCorrect" src="benar.mp3" type="audio/mpeg"></audio>
+<audio id="soundWrong" src="salah.mp3" type="audio/mpeg"></audio>
+<audio id="soundWin" src="menang (2).mp3" type="audio/mpeg"></audio>
+
+<!-- Soal -->
+<div class="soal-container">
+  <h2>MENDATAR</h2>
+  <p><strong>2.</strong> Himpunan seluruh kemungkinan keluaran yang menjadi target pemetaan fungsi.</p>
+  <p><strong>4.</strong> Proses menunjukkan arah hubungan dari setiap elemen domain ke kodomain secara sistematis.</p>
+  <p><strong>7.</strong> Relasi khusus yang setiap anggota domain memiliki tepat satu pasangan di kodomain.</p>
+  <p><strong>8.</strong> Jenis fungsi di mana setiap anggota domain dipetakan ke anggota kodomain yang berbeda.</p>
+  <p><strong>9.</strong> Fungsi di mana setiap anggota kodomain merupakan hasil pemetaan dari setidaknya satu anggota domain.</p>
+  <p><strong>12.</strong> Himpunan hasil keluaran nyata yang diperoleh dari pemetaan suatu fungsi.</p>
+
+  <h2>MENURUN</h2>
+  <p><strong>1.</strong> Hasil dari relasi berupa dua elemen yang saling berhubungan satu sama lain.</p>
+  <p><strong>3.</strong> Istilah lain dari hasil fungsi setelah memasukkan nilai domain tertentu.</p>
+  <p><strong>5.</strong> Himpunan semua nilai masukan (input) yang akan dipasangkan ke anggota kodomain melalui suatu fungsi.</p>
+  <p><strong>6.</strong> Fungsi yang bersifat injektif dan surjektif sekaligus, sehingga setiap anggota domain dan kodomain saling berpasangan satu-satu.</p>
+  <p><strong>10.</strong> Suatu hubungan atau aturan yang memasangkan anggota satu himpunan dengan anggota himpunan lain.</p>
+  <p><strong>11.</strong> Bentuk penulisan fungsi secara umum yang menyatakan hasil keluaran dari fungsi terhadap variabel (x).</p>
+</div>
+
+<script>
+const soundCorrect = document.getElementById('soundCorrect');
+const soundWrong = document.getElementById('soundWrong');
+const soundWin = document.getElementById('soundWin');
+
+// Otomatis cek jawaban tiap huruf diketik
+document.querySelectorAll('.cell input').forEach(inp => {
+  inp.addEventListener('input', () => {
+    const userVal = inp.value.toUpperCase();
+    const correctVal = inp.dataset.answer;
+    inp.value = userVal;
+    inp.parentElement.classList.remove('correct', 'incorrect');
+
+    if (userVal === correctVal) {
+      inp.parentElement.classList.add('correct');
+      inp.disabled = true;
+      soundCorrect.play();
+      checkAllCorrect();
+    } else if (userVal !== "") {
+      inp.parentElement.classList.add('incorrect');
+      soundWrong.play();
+    }
+  });
+});
+
+// Tombol cek semua
+document.getElementById('checkBtn').addEventListener('click', () => {
+  let anyWrong = false;
+  const inputs = document.querySelectorAll('.cell input');
+  inputs.forEach(inp => {
+    if (inp.disabled) return;
+    const userVal = inp.value.toUpperCase();
+    const correctVal = inp.dataset.answer;
+    inp.parentElement.classList.remove('correct', 'incorrect');
+    if (userVal) {
+      if (userVal === correctVal) {
+        inp.parentElement.classList.add('correct');
+        inp.disabled = true;
+      } else {
+        inp.parentElement.classList.add('incorrect');
+        anyWrong = true;
+      }
+    } else {
+      anyWrong = true;
+    }
+  });
+  if (anyWrong) soundWrong.play();
+  else checkAllCorrect();
+});
+
+function checkAllCorrect() {
+  const allInputs = document.querySelectorAll('.cell input');
+  const allCorrect = Array.from(allInputs).every(inp => inp.disabled);
+  if (allCorrect) {
+    soundWin.play();
+    alert("🎉 Selamat! Semua jawaban benar!");
+  }
+}
+</script>
+
+</body>
+</html>
